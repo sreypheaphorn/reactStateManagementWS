@@ -3,10 +3,13 @@ import { useNavigate } from "react-router-dom";
 export const ShoppingList = () => {
   const navigate = useNavigate();
   const items = ["Apples", "Bananas", "Oranges"]
+  const userName = "Jonh"
+
 
   return (
     <div className="p-6 min-h-screen min-w-screen bg-gray-100 flex flex-col items-center text-black">
       <h1 className="text-2xl font-bold mb-4">Shopping List</h1>
+      <p className="text-lg mb-4">Welcome, {userName || "Guest"}!</p> {/* Display user name */}
       {items.length === 0 ? (
         <p className="text-gray-500">Nothing to buy yet!</p>
       ) : (

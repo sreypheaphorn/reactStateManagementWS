@@ -4,11 +4,19 @@ import { useState } from "react";
 export const AddItem = () => {
   const navigate = useNavigate();
   const [itemName, setItemName] = useState("");
+  const [userName, setUserName] = useState(""); // State for user name
+
 
   const handleAdd = () => {
     if (itemName.trim()) {
       setItemName(""); // Clear input
       navigate("/"); // Go back to list
+    }
+  };
+
+  const handleSetName = () => {
+    if (userName.trim()) {
+      setUserName("");
     }
   };
 
@@ -36,6 +44,21 @@ export const AddItem = () => {
           Cancel
         </button>
       </div>
+
+      <h1 className="text-2xl font-bold mb-4 mt-8">Set User Name</h1>
+      <input
+        type="text"
+        value={userName}
+        onChange={(e) => setUserName(e.target.value)}
+        placeholder="Enter your name"
+        className="p-2 border rounded w-full max-w-md mb-4"
+      />
+      <button
+        className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+        onClick={handleSetName}
+      >
+        Set Name
+      </button>
     </div>
   );
 };
